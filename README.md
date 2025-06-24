@@ -43,7 +43,9 @@ Importante frisar que criar produtos não é a principal responsabilidade do cri
 - Maior complexidade inicial → desnecessário em casos simples
 - Excesso de subclasses
 
+
 ---
+
 
 # Prototype
 
