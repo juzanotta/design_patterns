@@ -1,4 +1,4 @@
-# factory method
+# Factory Method
 
 ### O que é?
 
