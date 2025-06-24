@@ -32,3 +32,13 @@ Importante frisar que criar produtos não é a principal responsabilidade do cri
 - quando quiser economizar recursos do sistema reutilizando objetos em vez de recriando-os
 
 ### Pontos de destaque e pontos de melhoria
+**Pontos de destaque:** 
+
+- Baixo acoplamento
+- Facilita a criação de novos tipos de produtos e a manutenção da aplicação
+- Reaproveitamento de lógica
+
+**Pontos de melhoria:**
+
+- Maior complexidade inicial → desnecessário em casos simples
+- Excesso de subclasses
