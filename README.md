@@ -17,7 +17,7 @@ O código que utiliza o método *fábrica* é chamado de **código cliente**. Es
 
 ### Estrutura
 
-![alt text](image.png)
+![alt text](factory_method.png)
 
 1. **Produto →** declara a interface, comum a todos os objetos produzidos pelo criador e suas subclasses
 2. **Produtos concretos →** diferentes implementações da interface de um produto
@@ -42,3 +42,49 @@ Importante frisar que criar produtos não é a principal responsabilidade do cri
 
 - Maior complexidade inicial → desnecessário em casos simples
 - Excesso de subclasses
+
+---
+
+# Prototype
+
+### O que é?
+
+É um padrão de projeto criacional que permite a cópia de objetos existentes sem que o código fique dependente de suas classes. Ele facilita a criação de novos objetos a partir de protótipos, evitando a necessidade de instanciar classes diretamente.
+
+### Problema
+
+Imagine que você tenha um objeto e precise criar uma cópia exata dele. A abordagem tradicional exigiria que você criasse um novo objeto da mesma classe e copiasse manualmente todos os campos do objeto original. No entanto, essa abordagem pode ser problemática, pois alguns campos podem ser privados e não acessíveis fora do objeto.
+
+Além disso, essa técnica gera uma dependência do código em relação à classe do objeto, o que pode complicar a manutenção e a extensibilidade do sistema. Se você estivesse lidando com um objeto que segue uma interface, mas não conhece sua classe concreta, a cópia se tornaria um desafio.
+
+### Solução
+
+O padrão Prototype resolve esse problema delegando o processo de clonagem ao próprio objeto que está sendo clonado. Ele define uma interface comum para todos os objetos que suportam clonagem, permitindo que você clone um objeto sem acoplar seu código à classe específica. Essa interface geralmente contém um único método: *clonar*.
+
+A implementação do método *clonar* é semelhante em todas as classes, criando um novo objeto da classe atual e copiando os valores dos campos do objeto original. Isso permite até mesmo a cópia de campos privados, já que a maioria das linguagens de programação permite que objetos da mesma classe acessem esses campos.
+
+### Estrutura
+
+![alt text](prototype.png)
+
+1. **Cliente →** o cliente utiliza a funcionalidade de clonar objetos
+2. **Protótipo →** a interface que define o método *clone* para criar cópias de instâncias
+3. **Protótipo concreto →** representa uma implementação específica do protótipo, contendo atributos e a lógica da clonagem
+4. **Subclasse protótipo →** uma extensão do protótipo concreto que pode adicionar mais comportamentos ou atributos
+
+### Aplicabilidade: **quando utilizar?**
+
+- quando seu código não depende de classes concretas de objetos que você precisa copiar
+- quando você deseja reduzir o número de subclasses que se diferem apenas na forma como inicializam seus objetos
+- quando você precisa de uma maneira eficiente de criar objetos complexos a partir de protótipos pré-construídos
+
+### Pontos de destaque e pontos de melhoria
+**Pontos de Destaque:**
+
+- Permite a clonagem de objetos sem acoplamento às suas classes concretas.
+- Facilita a reutilização de objetos complexos.
+
+**Pontos de Melhoria:**
+
+- Clonar objetos complexos com referências circulares pode ser desafiador.
+- A inicialização de objetos clonados pode ser complicada.
